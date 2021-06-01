@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.15)
 
 
-project(sample LANGUAGES CXX)
+project(stkfmm_play LANGUAGES CXX)
 
 #
 # Prevent building in the source directory
@@ -25,14 +25,27 @@ set(CMAKE_CXX_FLAGS_DEBUG "-g --coverage")
 #
 # Building the project
 #
-include_directories(include)
 
 set(SAMPLE_SOURCES
     src/sample.cpp
 )
 
 add_library(sample SHARED ${SAMPLE_SOURCES})
+
+target_include_directories(sample
+    PUBLIC 
+        $<INSTALL_INTERFACE:include>    
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}/src
+)
+
 target_link_libraries(sample "--coverage")
+
+
+add_executable(stkfmm_play src/main.cpp)
+target_compile_features(stkfmm_play PRIVATE cxx_std_11)
+
 
 #
 # Build test
