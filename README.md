@@ -1,7 +1,7 @@
 # Sciware Testing Examples and Exercises
 
-[![](https://github.com/flatironinstitute/sciware-testing-cpp/actions/workflows/cmake.yml/badge.svg)](https://github.com/flatironinstitute/sciware-testing-cpp/actions/workflows/cmake.yml/)
-[![codecov](https://codecov.io/gh/flatironinstitute/sciware-testing-cpp/branch/main/graph/badge.svg?token=99NU99TVDH)](https://codecov.io/gh/flatironinstitute/sciware-testing-cpp)
+[![](https://github.com/lamsoa729/stkfmm_play/actions/workflows/cmake.yml/badge.svg)](https://github.com/lamsoa729/stkfmm_play/actions/workflows/cmake.yml/)
+[![codecov](https://codecov.io/gh/lamsoa729/stkfmm_play/branch/main/graph/badge.svg?token=4c32b4ac-4a45-4e44-b82d-0b87338cdb04)](https://codecov.io/gh/lamsoa729/stkfmm_play)
 
 This is an example repository for writing tests, for the Sciware Testing session.
 
