@@ -26,7 +26,9 @@ set(CMAKE_CXX_FLAGS_DEBUG "-g --coverage")
 # Building the project
 #
 
+## Create library
 set(SAMPLE_SOURCES
+    src/particle.cpp
     src/sample.cpp
 )
 
@@ -42,10 +44,10 @@ target_include_directories(sample
 
 target_link_libraries(sample "--coverage")
 
-
+## Create executable
 add_executable(stkfmm_play src/main.cpp)
 target_compile_features(stkfmm_play PRIVATE cxx_std_11)
-
+target_link_libraries(stkfmm_play PRIVATE sample)
 
 #
 # Build test
