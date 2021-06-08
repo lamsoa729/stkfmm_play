@@ -8,7 +8,21 @@
 
 #include "particle.hpp"
 
+struct parameters {
+    double dt;
+    double sides[3];
+};
+
+parameters make_params() {
+    parameters params;
+    params.dt = .0001;
+    std::fill(params.sides, params.sides + 3, 5.);
+
+    return params;
+}
+
 int main() {
+    parameters params = make_params();
     double pos[3] = {0, 0, 0};
     Particle p1(1., pos);
     p1.PrintParticle();

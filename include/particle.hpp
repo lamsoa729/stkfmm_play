@@ -17,6 +17,12 @@ class Particle {
 
   void ZeroForce();
 
+  inline void addForce(double force[3]) {
+    for (int i = 0; i < 3; ++i) {
+      force_[i] += force[i];
+    }
+  }
+
   // virtual ~Particle();
   inline void PrintParticle() {
     printf(">  P%d : force = {%f, %f, %f} ; pos =  {%f, %f, %f} \n", oid_,

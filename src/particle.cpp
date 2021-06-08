@@ -16,6 +16,7 @@ void Particle::Integrate(double dt) {
     for (int i = 0; i < 3; ++i) {
         pos_[i] += (force_[i] / drag_coeff_) * dt;
     }
+    ZeroForce();
 }
 
 void Particle::ZeroForce() { std::fill(force_, force_ + 3, 0); }
