@@ -6,10 +6,10 @@
 
 #include "particle.hpp"
 
-Particle::Particle(double drag_coeff, double pos[3])
-    : oid_(1), drag_coeff_(drag_coeff) {
+Particle::Particle(parameters &params, int oid, double pos[3]) : oid_(oid) {
     ZeroForce();
-    std::copy(pos, pos + 3, pos_);
+    // calcDrag(params.viscosity);
+    // std::copy(pos, pos + 3, pos_);
 }
 
 void Particle::Integrate(double dt) {

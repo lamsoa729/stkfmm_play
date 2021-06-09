@@ -6,12 +6,8 @@
 
 #include <iostream>
 
+#include "parameters.hpp"
 #include "particle.hpp"
-
-struct parameters {
-    double dt;
-    double sides[3];
-};
 
 parameters make_params() {
     parameters params;
@@ -24,7 +20,7 @@ parameters make_params() {
 int main() {
     parameters params = make_params();
     double pos[3] = {0, 0, 0};
-    Particle p1(1., pos);
+    Particle p1(params, 1, pos);
     p1.PrintParticle();
 
     // std::vector<Particle> particles;
