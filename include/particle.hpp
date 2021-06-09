@@ -4,26 +4,27 @@
  * @created     : Monday Jun 07, 2021 16:43:54 EDT
  */
 
-#include "parameters.hpp"
 #ifndef PARTICLE_HPP
 
 #define PARTICLE_HPP
-//#define _USE_MATH_DEFINES
-//#include <cmath>
+
+#define _USE_MATH_DEFINES
+#include <cmath>
+#include <vector>
+
+#include "parameters.hpp"
 
 class Particle {
  private:
   int oid_;
   double rad_;
+  double drag_coeff_;
   double pos_[3];
   double force_[3];
 
-  double drag_coeff_;
-  /* private data */
-
-  // inline void calcDrag(double viscosity) {
-  //  drag_coeff_ = viscosity * 6. * M_PI * rad_;
-  //}
+  inline void calcDrag(double viscosity) {
+    drag_coeff_ = viscosity * 6. * M_PI * rad_;
+  }
 
  public:
   Particle(parameters& params, int oid, double pos[3]);
@@ -31,15 +32,15 @@ class Particle {
   void Integrate(double dt);
 
   // inline void ZeroForce() { std::fill(force_, force_ + 3, 0); }
-  void ZeroForce();
+  inline void ZeroForce() { std::fill(force_, force_ + 3, 0); }
+
+  inline void setPos(double pos[3]) { std::copy(pos, pos + 3, pos_); }
 
   inline void addForce(double force[3]) {
     for (int i = 0; i < 3; ++i) {
       force_[i] += force[i];
     }
   }
-
-  // inline void setPos(double pos[3]) { std::copy(pos, pos + 3, pos_); }
 
   inline void PrintParticle() {
     printf(">  P%d : force = {%f, %f, %f} ; pos =  {%f, %f, %f} \n", oid_,
